@@ -1,0 +1,6 @@
+<h1>Show Kitten</h1>
+<div>Name: <%= @kitten.name %></div>
+<div>Age: <%= @kitten.age %></div>
+<div>Cuteness: <%= @kitten.cuteness %></div>
+<div>Softness: <%= @kitten.softness %></div>
+<%= link_to 'Delete this kitten', destroy_kitten_path(@kitten) %>

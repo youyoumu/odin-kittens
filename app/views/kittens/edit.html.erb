@@ -1,0 +1,18 @@
+<h1>Edit Kitten</h1>
+<div>Name: <%= @kitten.name %></div>
+<div>Age: <%= @kitten.age %></div>
+<div>Cuteness: <%= @kitten.cuteness %></div>
+<div>Softness: <%= @kitten.softness %></div>
+<div>
+  <%= form_with model: @kitten, local: true, method: 'put' do |f|%>
+    <%= f.label :name, 'New Name:' %>
+    <%= f.text_field :name %>
+    <%= f.label :age, 'New Age:' %>
+    <%= f.number_field (:age, step: 1) %>
+    <%= f.label :cuteness, 'New Cuteness:' %>
+    <%= f.number_field (:cuteness, step: 1) %>
+    <%= f.label :softness, 'New Softness:' %>
+    <%= f.number_field (:softness, step: 1) %>
+    <%= f.submit 'Submit' %>
+  <% end %>
+</div>
