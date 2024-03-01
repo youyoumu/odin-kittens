@@ -1,6 +1,11 @@
 <h1>Show Kitten</h1>
+<% flash.each do |type, message| %>
+  <div class="alert alert-<%= type %>">
+    <%= message %>
+  </div>
+<% end %>
 <div>Name: <%= @kitten.name %></div>
 <div>Age: <%= @kitten.age %></div>
 <div>Cuteness: <%= @kitten.cuteness %></div>
 <div>Softness: <%= @kitten.softness %></div>
-<%= link_to 'Delete this kitten', destroy_kitten_path(@kitten) %>
+<%= link_to 'Delete this kitten', kitten_path(@kitten), data: { turbo_method: "delete" }  %>

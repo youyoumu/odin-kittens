@@ -1,6 +1,12 @@
 <h1>Kittens Index</h1>
+<% flash.each do |type, message| %>
+  <div class="alert alert-<%= type %>">
+    <%= message %>
+  </div>
+<% end %>
+<%= link_to 'New Kitten', new_kitten_path %>
 <ul>
-  <% @Kittens.each do |kitten| %>
-    <li> <%= link_to kitten.name, kitten_path(kitten) %> </li>
+  <% @kittens.each do |kitten| %>
+    <li> <%= link_to kitten.name, kitten_path(kitten) %> <%= link_to 'delete this kitten', kitten_path(kitten), data: { turbo_method: "delete" }  %></li>
   <% end %>
 </ul>
