@@ -9,14 +9,3 @@
 <div>Cuteness: <%= @kitten.cuteness %></div>
 <div>Softness: <%= @kitten.softness %></div>
 <%= link_to 'Delete this kitten', kitten_path(@kitten), data: { turbo_method: "delete" }  %>
-<%= form_with url: 'image_chest', method: :post do |f|%>
-  <%= f.text_field :post_id %>
-  <%= f.hidden_field :kitten_id, value: @kitten.id %>
-  <%= f.submit 'Submit'%>
-<% end %>
-<% unless @images.nil? || @images.empty? %>
-  <% @images.each do |img| %>
-    <% debugger %>
-    <img src="<%= img %>">
-  <% end %>
-<% end %>

@@ -1,12 +1,12 @@
 require 'rest-client'
 class ImageChestController < ApplicationController
 
-  def create
-    post = RestClient.get("https://api.imgchest.com/v1/post/#{params[:post_id]}", { Authorization: "Bearer FODCeqI8gJvUiEaAcAMiJBOfahXMf7L9EzSPguX81a366d75" })
-    @images = []
-    JSON.parse(post.body)['data']['images'].each { |file| @images << file['link'] }
-
-    @kitten = Kitten.find(params[:kitten_id])
-    render 'kittens/show'
+  def show
+    unless params[:post_id].blank?
+      post = RestClient.get("https://api.imgchest.com/v1/post/#{params[:post_id]}", { Authorization: "Bearer #{ENV['IMGCHEST_TOKEN']}" })
+      @images = []
+      JSON.parse(post.body)['data']['images'].each { |file| @images << file['link'] }
+    end
+    render :show
   end
 end

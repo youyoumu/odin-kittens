@@ -1,0 +1,10 @@
+<h1>Images</h1>
+<%= form_with url: 'image_chest', method: :get do |f|%>
+  <%= f.text_field :post_id %>
+  <%= f.submit 'Submit'%>
+<% end %>
+<% unless @images.nil? || @images.empty? %>
+  <% @images.each do |img| %>
+    <%= image_tag img, style: "width: 720px; height: auto;" %>
+  <% end %>
+<% end %>

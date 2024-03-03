@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: "kittens#index"
   resources :kittens
 
-  post "kittens/image_chest" => "image_chest#create"
+  get "image_chest" => "image_chest#show"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
